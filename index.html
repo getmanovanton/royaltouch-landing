@@ -26,8 +26,9 @@
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    * { user-select: none; }
-    input, textarea { user-select: text; }
+    * { user-select: none; cursor: default; }
+    input, textarea { user-select: text; cursor: text; }
+    a, button, .pill, .addon-item, .ba-toggle, .test-arrow, .add-pill, .modal-close, .modal-edit, .hamburger, .social-link, .mobile-nav-close { cursor: pointer; }
 
     :root {
       --gold: #b8972e;
@@ -133,9 +134,10 @@
       display: flex; align-items: center; gap: 10px;
     }
     .logo-box {
-      width: 140px; height: 48px;
+      width: 170px; height: 56px;
       display: flex; align-items: center; justify-content: center;
     }
+    .logo-box img { mix-blend-mode: screen; }
     nav { display: flex; align-items: center; gap: 72px; }
     nav a {
       font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
