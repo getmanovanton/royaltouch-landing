@@ -1131,6 +1131,36 @@
   </div>
 </footer>
 
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirmOverlay">
+  <div class="modal" style="text-align:center;">
+    <div style="font-size:48px; margin-bottom:16px;">😀 🎉 ✨</div>
+    <h3 style="font-family:var(--serif); font-size:28px; margin-bottom:16px;">Booking Confirmed!</h3>
+    <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:24px;">Thank you! Your cleaning request has been received<br>Our team will contact you shortly to confirm the details</p>
+    <div style="background:var(--bg3); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px;">
+      <h4 style="font-family:var(--serif); font-size:20px; margin-bottom:20px;">Your Booking</h4>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; text-align:left; margin-bottom:20px;">
+        <div>
+          <div style="font-size:11px; font-weight:600; color:var(--text); margin-bottom:6px;">Home size</div>
+          <div style="font-size:13px; color:var(--text-muted);" id="confSize">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:600; color:var(--text); margin-bottom:6px;">Cleaning Type</div>
+          <div style="font-size:13px; color:var(--text-muted);" id="confType">—</div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:600; color:var(--text); margin-bottom:6px;">Additional Services</div>
+          <div style="font-size:13px; color:var(--text-muted);" id="confAddons">—</div>
+        </div>
+      </div>
+      <div style="font-size:13px; color:var(--text-muted); margin-bottom:8px;">Your Estimated Total</div>
+      <div style="font-family:var(--serif); font-size:36px; color:var(--gold);" id="confTotal">$0</div>
+    </div>
+    <p style="font-size:12px; color:var(--text-muted); margin-bottom:20px;">We will get back to you within 1-2 hours</p>
+    <button class="btn-gold" style="width:100%; font-size:14px;" onclick="closeConfirm()">Continue browsing</button>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
   <div class="modal">
@@ -1263,8 +1293,17 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
   function submitBooking() {
-    alert('Thank you! We will contact you shortly to confirm your booking.');
     closeModal();
+    document.getElementById('confSize').textContent = state.size;
+    document.getElementById('confType').textContent = state.type;
+    document.getElementById('confAddons').textContent = state.addons.size ? [...state.addons].join(', ') : '—';
+    document.getElementById('confTotal').textContent = '$' + calcTotal();
+    document.getElementById('confirmOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeConfirm() {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   // ── TIME PICKER ──
