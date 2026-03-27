@@ -639,20 +639,19 @@
     .scroll-top {
       position: fixed; bottom: 32px; right: 32px; z-index: 99;
       width: 52px; height: 52px; border-radius: 50%;
-      background: transparent;
-      border: 2px solid var(--gold);
+      background: #7a6a2e; border: none;
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      color: var(--gold); font-size: 22px; font-weight: 300; line-height: 1;
+      color: #f0ece4; font-size: 20px; line-height: 1;
       opacity: 0; transform: translateY(16px) scale(0.8);
-      transition: opacity .35s, transform .35s, background .2s, color .2s;
+      transition: opacity .35s, transform .35s, background .2s;
       pointer-events: none;
     }
     .scroll-top.visible {
       opacity: 1; transform: translateY(0) scale(1);
       pointer-events: all;
     }
-    .scroll-top:hover { background: var(--gold); color: #0d0d0d; transform: translateY(-2px); }
+    .scroll-top:hover { background: #9a8638; }
 
     /* fade-in on scroll */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
