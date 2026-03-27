@@ -638,20 +638,21 @@
     /* ── SCROLL TO TOP ── */
     .scroll-top {
       position: fixed; bottom: 32px; right: 32px; z-index: 99;
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--gold); border: none; cursor: pointer;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: transparent;
+      border: 2px solid var(--gold);
+      cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      color: #0d0d0d; font-size: 18px;
-      box-shadow: 0 4px 24px rgba(184,151,46,0.35);
+      color: var(--gold); font-size: 22px; font-weight: 300; line-height: 1;
       opacity: 0; transform: translateY(16px) scale(0.8);
-      transition: opacity .35s, transform .35s, background .2s;
+      transition: opacity .35s, transform .35s, background .2s, color .2s;
       pointer-events: none;
     }
     .scroll-top.visible {
       opacity: 1; transform: translateY(0) scale(1);
       pointer-events: all;
     }
-    .scroll-top:hover { background: var(--gold-light); transform: translateY(-2px) scale(1.05); }
+    .scroll-top:hover { background: var(--gold); color: #0d0d0d; transform: translateY(-2px); }
 
     /* fade-in on scroll */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
@@ -663,7 +664,7 @@
 <body>
 
 <!-- SCROLL TO TOP -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">^</button>
 
 <!-- HEADER -->
 <header>
