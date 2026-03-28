@@ -245,43 +245,32 @@
     .service-card-overlay h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
     .service-card-overlay p { font-size: 12px; color: #ccc4ba; line-height: 1.6; max-width: 200px; }
 
-    /* ── BEFORE/AFTER ── */
+    /* ── RESULTS ── */
     .ba-header { text-align: center; margin-bottom: 60px; }
     .ba-header p { color: var(--text-muted); font-size: 14px; }
     .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .ba-card {
-      border-radius: 20px; overflow: hidden;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 0;
-    }
-    .ba-img-wrap {
-      aspect-ratio: 4/3; overflow: hidden;
-      background: var(--bg3);
+    .result-card {
+      border-radius: 16px; overflow: hidden;
       position: relative;
-    }
-    .ba-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: opacity .4s; }
-    .ba-img-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px; opacity: .2;
-    }
-    .ba-content { padding: 20px 22px; }
-    .ba-state {
-      font-family: var(--serif); font-size: 20px;
-      margin-bottom: 8px;
-    }
-    .ba-state.after { color: var(--gold); }
-    .ba-desc { font-size: 12px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
-    .ba-toggle {
-      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg3);
       border: 1px solid var(--border);
-      background: transparent; color: var(--text-muted);
-      font-size: 14px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color .2s, color .2s;
+      cursor: pointer;
     }
-    .ba-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .result-card img {
+      display: block; width: 100%; height: 240px;
+      object-fit: cover; transition: transform .5s;
+    }
+    .result-card:hover img { transform: scale(1.05); }
+    .result-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('images/Overlay.png') center/cover no-repeat;
+      padding: 20px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
+    }
+    .result-overlay h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+    .result-overlay p { font-size: 12px; color: #ccc4ba; line-height: 1.6; max-width: 180px; }
 
     /* ── CHECKLIST ── */
     #checklist { background: var(--bg2); }
@@ -775,43 +764,34 @@
   </div>
 </section>
 
-<!-- BEFORE/AFTER -->
+<!-- RESULTS -->
 <section id="before-after" class="section">
   <div class="container">
     <div class="ba-header fade-in">
-      <span class="label">Before/After Results</span>
+      <span class="label">Our Results</span>
       <h2>See the Difference</h2>
       <p>Our professional cleaning transforms your space and leaves it spotless</p>
     </div>
     <div class="ba-grid fade-in">
-      <div class="ba-card">
-        <div class="ba-img-wrap">
-          <img src="images/before_1.png" alt="before" id="baImg1">
-        </div>
-        <div class="ba-content">
-          <div class="ba-state" id="state1">Before</div>
-          <p class="ba-desc" id="desc1">Grease buildup and stubborn stains covered the stovetop and burners</p>
-          <button class="ba-toggle" onclick="toggleBA(1)">›</button>
+      <div class="result-card">
+        <img src="images/after_1.png" alt="Kitchen Result">
+        <div class="result-overlay">
+          <h3>Kitchen</h3>
+          <p>Spotless surfaces, clean stovetop and grease-free burners</p>
         </div>
       </div>
-      <div class="ba-card">
-        <div class="ba-img-wrap">
-          <img src="images/before_2.png" alt="before" id="baImg2">
-        </div>
-        <div class="ba-content">
-          <div class="ba-state" id="state2">Before</div>
-          <p class="ba-desc" id="desc2">Soap buildup and water stains on glass. Visible grime in corners and fixtures</p>
-          <button class="ba-toggle" onclick="toggleBA(2)">›</button>
+      <div class="result-card">
+        <img src="images/after_2.png" alt="Bathroom Result">
+        <div class="result-overlay">
+          <h3>Bathroom</h3>
+          <p>Sparkling tiles, clean fixtures and streak-free glass</p>
         </div>
       </div>
-      <div class="ba-card">
-        <div class="ba-img-wrap">
-          <img src="images/before_3.png" alt="before" id="baImg3">
-        </div>
-        <div class="ba-content">
-          <div class="ba-state" id="state3">Before</div>
-          <p class="ba-desc" id="desc3">Smudges and dust on glass surface. Streaks reducing clarity and shine</p>
-          <button class="ba-toggle" onclick="toggleBA(3)">›</button>
+      <div class="result-card">
+        <img src="images/after_3.png" alt="Windows Result">
+        <div class="result-overlay">
+          <h3>Windows</h3>
+          <p>Crystal-clear glass, no smudges or streaks</p>
         </div>
       </div>
     </div>
@@ -1265,27 +1245,6 @@
   }
 
   // ── BEFORE/AFTER ──
-  const baImgs = {
-    1: { before: 'images/before_1.png', after: 'images/after_1.png' },
-    2: { before: 'images/before_2.png', after: 'images/after_2.png' },
-    3: { before: 'images/before_3.png', after: 'images/after_3.png' }
-  };
-  const baState = { 1: 'before', 2: 'before', 3: 'before' };
-
-  const baTextData = {
-    1: { before: 'Grease buildup and stubborn stains covered the stovetop and burners', after: 'Stovetop and burners fully degreased and spotless — like brand new' },
-    2: { before: 'Soap buildup and water stains on glass. Visible grime in corners and fixtures', after: 'Glass sparkling clean, no streaks. Fixtures and corners fully sanitized' },
-    3: { before: 'Smudges and dust on glass surface. Streaks reducing clarity and shine', after: 'Crystal clear glass with zero streaks. Full shine restored' }
-  };
-
-  function toggleBA(n) {
-    baState[n] = baState[n] === 'before' ? 'after' : 'before';
-    const isAfter = baState[n] === 'after';
-    document.getElementById('state' + n).textContent = isAfter ? 'After' : 'Before';
-    document.getElementById('state' + n).className = 'ba-state' + (isAfter ? ' after' : '');
-    document.getElementById('desc' + n).textContent = baTextData[n][baState[n]];
-    document.getElementById('baImg' + n).src = baImgs[n][baState[n]];
-  }
 
   // ── MODAL ──
   function openModal() {
