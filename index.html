@@ -215,35 +215,35 @@
     .services-header p { color: var(--text-muted); max-width: 660px; font-size: 15px; }
     .services-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 740px; margin: 0 auto;
+      gap: 20px;
+      max-width: 600px; margin: 0 auto;
     }
     .service-card {
-      border-radius: 20px; overflow: hidden;
+      border-radius: 16px; overflow: hidden;
       position: relative;
       background: var(--bg3);
       cursor: pointer;
     }
     .service-card img {
-      display: block; width: 100%; height: 260px;
+      display: block; width: 100%; height: 220px;
       object-fit: cover; transition: transform .5s;
     }
     .service-card:hover img { transform: scale(1.05); }
     .service-card-placeholder {
-      width: 100%; height: 260px;
+      width: 100%; height: 220px;
       display: flex; align-items: center; justify-content: center;
       font-size: 36px; opacity: .2;
     }
     .service-card-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 45%, rgba(0,0,0,.1) 100%);
-      padding: 24px;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.55) 50%, rgba(0,0,0,.15) 100%);
+      padding: 20px;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center;
     }
-    .service-card-overlay h3 { font-family: var(--serif); font-size: 26px; margin-bottom: 10px; }
-    .service-card-overlay p { font-size: 13px; color: #ccc4ba; line-height: 1.6; max-width: 220px; }
+    .service-card-overlay h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+    .service-card-overlay p { font-size: 12px; color: #ccc4ba; line-height: 1.6; max-width: 200px; }
 
     /* ── BEFORE/AFTER ── */
     .ba-header { text-align: center; margin-bottom: 60px; }
