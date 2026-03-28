@@ -647,7 +647,8 @@
     .scroll-top {
       position: fixed; bottom: 32px; right: 32px; z-index: 99;
       width: 52px; height: 52px; border-radius: 50%;
-      background: #7a6a2e; border: none;
+      background: rgba(198,167,94,0.5);
+      border: 1px solid rgba(18,18,18,0.5);
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       color: #f0ece4; font-size: 20px; line-height: 1;
@@ -659,7 +660,7 @@
       opacity: 1; transform: translateY(0) scale(1);
       pointer-events: all;
     }
-    .scroll-top:hover { background: #9a8638; }
+    .scroll-top:hover { background: rgba(198,167,94,0.75); }
 
     /* fade-in on scroll */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
