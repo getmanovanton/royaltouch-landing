@@ -251,26 +251,20 @@
     .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .result-card {
       border-radius: 16px; overflow: hidden;
-      position: relative;
-      background: var(--bg3);
+      background: var(--bg2);
       border: 1px solid var(--border);
-      cursor: pointer;
     }
-    .result-card img {
-      display: block; width: 100%; height: 240px;
-      object-fit: cover; transition: transform .5s;
+    .result-images { display: flex; }
+    .result-images img {
+      width: 50%; height: 180px;
+      object-fit: cover; display: block;
     }
-    .result-card:hover img { transform: scale(1.05); }
-    .result-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('images/Overlay.png') center/cover no-repeat;
-      padding: 20px;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
+    .result-label {
+      padding: 16px;
       text-align: center;
+      font-size: 15px;
+      color: var(--text);
     }
-    .result-overlay h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
-    .result-overlay p { font-size: 12px; color: #ccc4ba; line-height: 1.6; max-width: 180px; }
 
     /* ── CHECKLIST ── */
     #checklist { background: var(--bg2); }
@@ -774,25 +768,46 @@
     </div>
     <div class="ba-grid fade-in">
       <div class="result-card">
-        <img src="images/after_1.png" alt="Kitchen Result">
-        <div class="result-overlay">
-          <h3>Kitchen</h3>
-          <p>Spotless surfaces, clean stovetop and grease-free burners</p>
+        <div class="result-images">
+          <img src="images/before_1.png" alt="Before">
+          <img src="images/after_1.png" alt="After">
         </div>
+        <div class="result-label">Electric Stove</div>
       </div>
       <div class="result-card">
-        <img src="images/after_2.png" alt="Bathroom Result">
-        <div class="result-overlay">
-          <h3>Bathroom</h3>
-          <p>Sparkling tiles, clean fixtures and streak-free glass</p>
+        <div class="result-images">
+          <img src="images/before_2.png" alt="Before">
+          <img src="images/after_2.png" alt="After">
         </div>
+        <div class="result-label">Shower Cabin</div>
       </div>
       <div class="result-card">
-        <img src="images/after_3.png" alt="Windows Result">
-        <div class="result-overlay">
-          <h3>Windows</h3>
-          <p>Crystal-clear glass, no smudges or streaks</p>
+        <div class="result-images">
+          <img src="images/before_3.png" alt="Before">
+          <img src="images/after_3.png" alt="After">
         </div>
+        <div class="result-label">Window</div>
+      </div>
+      <div class="result-card">
+        <div class="result-images">
+          <img src="images/before_4.png" alt="Before">
+          <img src="images/after_4.png" alt="After">
+        </div>
+        <div class="result-label">Sink</div>
+      </div>
+      <div class="result-card">
+        <div class="result-images">
+          <img src="images/before_5.png" alt="Before">
+          <img src="images/after_5.png" alt="After">
+        </div>
+        <div class="result-label">Kitchen Cabinet Shelf</div>
+      </div>
+      <div class="result-card">
+        <div class="result-images">
+          <img src="images/before_6.png" alt="Before">
+          <img src="images/after_6.png" alt="After">
+        </div>
+        <div class="result-label">Blinds</div>
       </div>
     </div>
   </div>
