@@ -187,8 +187,11 @@
       font-size: 14px; color: #a09888; letter-spacing: .3px;
     }
     .check-icon {
-      color: var(--text); font-size: 16px; flex-shrink: 0;
-      line-height: 1;
+      display: inline-block; flex-shrink: 0;
+      width: 16px; height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpolyline points='2,9 6,13 14,4' stroke='%23888888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
     }
     .hero-image {
       border-radius: 24px; overflow: hidden;
@@ -716,9 +719,9 @@
           <a href="#checklist" class="btn-outline">Checklist</a>
         </div>
         <div class="hero-checks">
-          <div class="hero-check"><span class="check-icon">✓</span> Insured professionals</div>
-          <div class="hero-check"><span class="check-icon">✓</span> Eco-friendly products</div>
-          <div class="hero-check"><span class="check-icon">✓</span> Satisfaction guaranteed</div>
+          <div class="hero-check"><span class="check-icon"></span> Insured professionals</div>
+          <div class="hero-check"><span class="check-icon"></span> Eco-friendly products</div>
+          <div class="hero-check"><span class="check-icon"></span> Satisfaction guaranteed</div>
         </div>
       </div>
       <div class="hero-image fade-in" style="animation-delay:.2s">
