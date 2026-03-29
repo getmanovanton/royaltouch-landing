@@ -341,24 +341,24 @@
       border-radius: 20px;
       padding: 34px 40px;
     }
-    .calc-left { display: flex; flex-direction: column; gap: 40px; }
+    .calc-left { display: flex; flex-direction: column; gap: 28px; }
     .calc-section-title {
       font-family: var(--serif); font-size: 28px; font-weight: 400;
-      text-align: center; margin-bottom: 24px; color: var(--text);
+      text-align: center; margin-bottom: 16px; color: var(--text);
     }
-    .pill-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pill-group { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
     .pill {
       padding: 10px 22px; border-radius: 50px;
       border: 1px solid rgba(255,255,255,0.2);
       background: transparent; color: var(--text);
       font-family: var(--sans); font-size: 14px; cursor: pointer;
-      transition: all .2s;
+      transition: all .2s; white-space: nowrap;
     }
     .pill:hover { border-color: var(--gold); }
     .pill.active { background: var(--gold); border-color: var(--gold); color: #0d0d0d; font-weight: 600; }
-    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 360px; margin: 0 auto; }
     .addon-item {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 10px;
       font-size: 14px; color: var(--text); cursor: pointer;
     }
     .addon-item input[type="checkbox"] { display: none; }
