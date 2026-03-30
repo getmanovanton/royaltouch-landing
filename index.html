@@ -1435,6 +1435,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1/bundled/lenis.min.js"></script>
 <script>
   // ── CALCULATOR STATE ──
   const state = {
@@ -1614,6 +1615,17 @@
   }, { threshold: 0.2 });
 
   document.querySelectorAll('.checklist-card').forEach(el => liObserver.observe(el));
+
+  // ── LENIS SMOOTH SCROLL (mouse only, not trackpad) ──
+  window.addEventListener('wheel', function detectMouse(e) {
+    // Trackpad sends small/fractional deltas; mouse wheel sends large integer deltas
+    if (Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 100) {
+      const lenis = new Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+    window.removeEventListener('wheel', detectMouse);
+  }, { passive: true });
 
   // ── MOBILE NAV ──
   function toggleMobileNav() {
