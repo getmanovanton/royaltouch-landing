@@ -1616,15 +1616,20 @@
 
   document.querySelectorAll('.checklist-card').forEach(el => liObserver.observe(el));
 
-  // ── LENIS SMOOTH SCROLL (mouse only, not trackpad) ──
-  window.addEventListener('wheel', function detectMouse(e) {
-    // Trackpad sends small/fractional deltas; mouse wheel sends large integer deltas
-    if (Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 100) {
-      const lenis = new Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-    }
-    window.removeEventListener('wheel', detectMouse);
+  // ── LENIS SMOOTH SCROLL ──
+  // Mouse wheel: long duration + easing. Trackpad: very short duration so OS inertia isn't doubled.
+  let lenis = new Lenis({ duration: 0.5, easing: (t) => 1 - Math.pow(1 - t, 3) });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  window.addEventListener('wheel', function detectInput(e) {
+    const isMouse = Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 100;
+    lenis.destroy();
+    lenis = new Lenis(isMouse
+      ? { duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }
+      : { duration: 0.4, easing: (t) => 1 - Math.pow(1 - t, 2) }
+    );
+    window.removeEventListener('wheel', detectInput);
   }, { passive: true });
 
   // ── MOBILE NAV ──
