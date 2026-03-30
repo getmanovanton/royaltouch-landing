@@ -183,6 +183,11 @@
       font-weight: 400;
       margin-bottom: 28px;
       line-height: 1.05;
+      background: linear-gradient(135deg, #f5ecd7 0%, #c6a75e 50%, #a07c32 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding-bottom: 0.1em;
     }
     .hero-sub {
       font-size: 15px; color: #a09888; max-width: 460px;
@@ -234,6 +239,12 @@
       background: var(--bg3);
       border: 1px solid var(--border);
       cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(198,167,94,0.6);
+      box-shadow: 0 12px 40px rgba(198,167,94,0.15);
     }
     .service-card img {
       display: block; width: 100%; height: 220px;
@@ -409,7 +420,7 @@
     .checklist-card,
     .how-card,
     .test-card {
-      transition: border-color .25s, box-shadow .25s;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
     }
     .service-card:hover,
     .result-card:hover,
@@ -418,6 +429,7 @@
     .test-card:hover {
       border-color: rgba(198,167,94,0.5);
       box-shadow: inset 0 1px 0 rgba(198,167,94,0.4), 0 4px 24px rgba(0,0,0,0.3);
+      transform: translateY(-6px) !important;
     }
 
     /* ── ADDITIONAL SERVICES ── */
