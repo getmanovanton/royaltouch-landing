@@ -45,12 +45,13 @@
       --sans: 'Inter', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 
     body {
       background: var(--bg);
       color: var(--text);
       font-family: var(--sans);
+      border-top: 2px solid var(--gold);
       font-weight: 300;
       line-height: 1.6;
       overflow-x: hidden;
@@ -374,7 +375,7 @@
     .calc-right {
       background: var(--bg3); border: 1px solid var(--border);
       border-radius: 20px; padding: 32px;
-      position: sticky; top: 100px;
+      position: sticky; top: 130px;
       align-self: start;
       min-height: 480px;
     }
@@ -596,6 +597,7 @@
     .footer-contact-icon { width: 20px; height: 20px; flex-shrink: 0; }
     .footer-mobile-btn { display: none; }
     .footer-mobile-contact { display: none; }
+    .topbar-mobile { display: none; }
     .footer-bottom {
       border-top: 1px solid var(--border);
       padding-top: 24px;
@@ -606,6 +608,7 @@
     /* ── MODAL ── */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 200;
+      height: 100dvh;
       background: rgba(0,0,0,.8); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       padding: 20px;
@@ -681,6 +684,16 @@
       .nav-cta-wrap { display: none; }
       .container { padding: 0 24px; }
       .section { padding: 70px 0; }
+      #hero { padding: 20px 0; min-height: unset; }
+      #hero .label { display: none; }
+      .topbar-mobile {
+        display: block;
+        text-align: center; padding: 8px 0;
+        font-family: var(--sans); font-size: 10px; font-weight: 400;
+        letter-spacing: 0.12em; color: #C6A75E;
+        background: var(--bg);
+        margin-top: 80px;
+      }
       .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       .hero-image { display: none; }
       .hero-left { align-items: center; padding-right: 0; }
@@ -708,6 +721,13 @@
       .calc-inner { grid-template-columns: 1fr; }
       #add-services { display: none; }
       .calc-right { position: static; }
+      .pill { font-size: 10px; }
+      .addon-item { font-size: 10px; }
+      .summary-label { font-size: 10px; }
+      .summary-value { font-size: 10px; }
+      .total-label { font-size: 16px; }
+      .total-price { font-size: 28px; }
+      .calc-note { font-size: 10px; }
       .test-grid { grid-template-columns: 1fr; }
       .test-card { width: 100%; }
       .test-img { display: none; }
@@ -831,6 +851,9 @@
   <a href="#footer" onclick="toggleMobileNav()">Contact</a>
   <button class="btn-gold" onclick="toggleMobileNav();openModal()">Get a Quote</button>
 </div>
+
+<!-- TOP BAR (mobile only) -->
+<div class="topbar-mobile">PREMIUM CLEANING IN TORONTO</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1050,8 +1073,8 @@
         <div class="calc-section">
           <h3 class="calc-section-title">Home Size</h3>
           <div class="pill-group" id="sizeGroup">
-            <button class="pill" onclick="selectPill('size',this,'1 Bedroom',120)">1 Bedroom</button>
-            <button class="pill active" onclick="selectPill('size',this,'2 Bedrooms',160)">2 Bedrooms</button>
+            <button class="pill active" onclick="selectPill('size',this,'1 Bedroom',120)">1 Bedroom</button>
+            <button class="pill" onclick="selectPill('size',this,'2 Bedrooms',160)">2 Bedrooms</button>
             <button class="pill" onclick="selectPill('size',this,'3 Bedrooms',200)">3 Bedrooms</button>
             <button class="pill" onclick="selectPill('size',this,'4+ Bedrooms',250)">4+ Bedrooms</button>
           </div>
@@ -1059,8 +1082,8 @@
         <div class="calc-section">
           <h3 class="calc-section-title">Cleaning Type</h3>
           <div class="pill-group" id="typeGroup">
-            <button class="pill" onclick="selectPill('type',this,'Regular Cleaning',0)">Regular Cleaning</button>
-            <button class="pill active" onclick="selectPill('type',this,'Deep Cleaning',80)">Deep Cleaning</button>
+            <button class="pill active" onclick="selectPill('type',this,'Regular Cleaning',0)">Regular Cleaning</button>
+            <button class="pill" onclick="selectPill('type',this,'Deep Cleaning',80)">Deep Cleaning</button>
             <button class="pill" onclick="selectPill('type',this,'Move-in/Move-out',60)">Move-in/Move-out</button>
             <button class="pill" onclick="selectPill('type',this,'Post-Construction',100)">Post-Construction</button>
           </div>
@@ -1093,19 +1116,19 @@
         <h3>Cleaning Summary</h3>
         <div class="summary-row">
           <div class="summary-label">Home Size</div>
-          <div class="summary-value" id="sumSize">2 Bedrooms</div>
+          <div class="summary-value" id="sumSize">1 Bedroom</div>
         </div>
         <div class="summary-row">
           <div class="summary-label">Cleaning Type</div>
-          <div class="summary-value" id="sumType">Deep Cleaning</div>
+          <div class="summary-value" id="sumType">Regular Cleaning</div>
         </div>
         <div class="summary-row">
           <div class="summary-label">Additional Services</div>
-          <div class="summary-value" id="sumAddons">Oven inside, Inside Fridge</div>
+          <div class="summary-value" id="sumAddons">—</div>
         </div>
         <hr class="summary-divider">
         <div class="total-label">Your Estimated Total</div>
-        <div class="total-price" id="totalPrice">$305</div>
+        <div class="total-price" id="totalPrice">$120</div>
         <button class="btn-gold" style="width:100%" onclick="openModal()">Book Cleaning</button>
         <p class="calc-note">Final price may vary depending on the condition of the home</p>
       </div>
@@ -1406,9 +1429,9 @@
 <script>
   // ── CALCULATOR STATE ──
   const state = {
-    size: '2 Bedrooms', sizePrice: 160,
-    type: 'Deep Cleaning', typePrice: 80,
-    addons: new Set(['Oven inside', 'Inside Fridge'])
+    size: '1 Bedroom', sizePrice: 120,
+    type: 'Regular Cleaning', typePrice: 0,
+    addons: new Set()
   };
 
   function calcTotal() {
@@ -1517,7 +1540,7 @@
   flatpickr('#bookDate', {
     minDate: 'today',
     dateFormat: 'd.m.Y',
-    disableMobile: false,
+    disableMobile: true,
     placeholder: 'Select date'
   });
 
