@@ -805,10 +805,12 @@
     .scroll-top:hover { background: rgba(198,167,94,0.75); }
 
     /* fade-in on scroll */
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
-    .fade-in { animation: fadeUp .7s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+    /* stagger children */
+    .stagger-item { opacity: 0; transform: translateY(28px); transition: opacity .5s ease, transform .5s ease; }
+    .stagger-item.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
@@ -890,28 +892,28 @@
       <p>Choose from a range of professional cleaning services tailored to keep your home spotless and stress-free.</p>
     </div>
     <div class="services-grid fade-in">
-      <div class="service-card">
+      <div class="service-card stagger-item">
         <img src="images/Service_card.webp" alt="Regular Cleaning" loading="lazy">
         <div class="service-card-overlay">
           <h3>Regular Cleaning</h3>
           <p>Routine cleaning to keep your home fresh, tidy, and comfortable every day</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card stagger-item">
         <img src="images/Service_card_2.webp" alt="Move in Move-out" loading="lazy">
         <div class="service-card-overlay">
           <h3>Move in / Move-out</h3>
           <p>Thorough cleaning to prepare your space for a fresh start when moving in or out</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card stagger-item">
         <img src="images/Service_card_3.webp" alt="Deep Cleaning" loading="lazy">
         <div class="service-card-overlay">
           <h3>Deep Cleaning</h3>
           <p>Detailed top-to-bottom cleaning to remove hidden dust, grime, and bacteria</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card stagger-item">
         <img src="images/Service_card_4.webp" alt="Post-Construction" loading="lazy">
         <div class="service-card-overlay">
           <h3>Post-Construction</h3>
@@ -931,21 +933,21 @@
       <p>Our professional cleaning transforms your space and leaves it spotless</p>
     </div>
     <div class="ba-grid fade-in">
-      <div class="result-card">
+      <div class="result-card stagger-item">
         <div class="result-images">
           <img src="images/before_1.webp" alt="Before" loading="lazy">
           <img src="images/after_1.webp" alt="After" loading="lazy">
         </div>
         <div class="result-label">Electric Stove</div>
       </div>
-      <div class="result-card">
+      <div class="result-card stagger-item">
         <div class="result-images">
           <img src="images/before_2.webp" alt="Before" loading="lazy">
           <img src="images/after_2.webp" alt="After" loading="lazy">
         </div>
         <div class="result-label">Shower Cabin</div>
       </div>
-      <div class="result-card">
+      <div class="result-card stagger-item">
         <div class="result-images">
           <img src="images/before_3.webp" alt="Before" loading="lazy">
           <img src="images/after_3.webp" alt="After" loading="lazy">
@@ -986,7 +988,7 @@
       <p>We follow a detailed checklist to make sure every corner of your home is spotless.</p>
     </div>
     <div class="checklist-grid fade-in">
-      <div class="checklist-card">
+      <div class="checklist-card stagger-item">
         <h3>Living Room</h3>
         <ul>
           <li>Dust all surfaces</li>
@@ -996,7 +998,7 @@
           <li>Tidy sofas and cushions</li>
         </ul>
       </div>
-      <div class="checklist-card">
+      <div class="checklist-card stagger-item">
         <h3>Bedroom</h3>
         <ul>
           <li>Make the bed</li>
@@ -1006,7 +1008,7 @@
           <li>Vacuum carpets and rugs</li>
         </ul>
       </div>
-      <div class="checklist-card">
+      <div class="checklist-card stagger-item">
         <h3>Bathroom</h3>
         <ul>
           <li>Clean sink and countertop</li>
@@ -1016,7 +1018,7 @@
           <li>Mop floors</li>
         </ul>
       </div>
-      <div class="checklist-card">
+      <div class="checklist-card stagger-item">
         <h3>Kitchen</h3>
         <ul>
           <li>Wipe countertops</li>
@@ -1039,17 +1041,17 @@
       <p>Booking a professional cleaning service is quick and easy. Follow these simple steps to get started.</p>
     </div>
     <div class="how-grid fade-in">
-      <div class="how-card">
+      <div class="how-card stagger-item">
         <div class="how-num">1</div>
         <h3>Request a Quote</h3>
         <p>Tell us about your home and choose the cleaning service you need</p>
       </div>
-      <div class="how-card">
+      <div class="how-card stagger-item">
         <div class="how-num">2</div>
         <h3>Schedule Your Cleaning</h3>
         <p>Pick a date and time that works best for you, and we will contact you</p>
       </div>
-      <div class="how-card">
+      <div class="how-card stagger-item">
         <div class="how-num">3</div>
         <h3>Enjoy Your Clean Home</h3>
         <p>Our team arrives and leaves your space spotless and fresh</p>
@@ -1165,7 +1167,7 @@
       <p>Real feedback from homeowners who trust our cleaning services</p>
     </div>
     <div class="test-grid fade-in">
-      <div class="test-card">
+      <div class="test-card stagger-item">
         <div class="test-img"><img src="images/review_1.webp" alt="review" id="revImg1" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
@@ -1175,7 +1177,7 @@
           <button class="test-arrow" onclick="toggleReview(1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
-      <div class="test-card">
+      <div class="test-card stagger-item">
         <div class="test-img"><img src="images/review_2.webp" alt="review" id="revImg2" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
@@ -1185,7 +1187,7 @@
           <button class="test-arrow" onclick="toggleReview(2)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
-      <div class="test-card">
+      <div class="test-card stagger-item">
         <div class="test-img"><img src="images/review_3.webp" alt="review" id="revImg3" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
@@ -1544,10 +1546,38 @@
     placeholder: 'Select date'
   });
 
+  // ── SCROLL ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // stagger для карточек в гридах
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.stagger-item');
+        items.forEach((item, i) => {
+          setTimeout(() => item.classList.add('visible'), i * 100);
+        });
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.services-grid, .ba-grid, .checklist-grid, .how-grid, .test-grid').forEach(el => staggerObserver.observe(el));
+
   // ── MOBILE NAV ──
   function toggleMobileNav() {
     const nav = document.getElementById('mobileNav');
     nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   }
 </script>
 </body>
