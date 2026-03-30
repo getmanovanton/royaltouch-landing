@@ -1435,7 +1435,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1/bundled/lenis.min.js"></script>
 <script>
   // ── CALCULATOR STATE ──
   const state = {
@@ -1623,14 +1622,6 @@
     document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   }
 
-  // ── LENIS SMOOTH SCROLL ──
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
 </script>
 </body>
 </html>
