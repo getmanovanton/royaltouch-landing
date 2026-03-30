@@ -394,7 +394,7 @@
       font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: #C6A75E;
       text-align: center; margin-bottom: 20px; line-height: 1;
     }
-    .calc-note { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: rgba(245,242,236,0.70); text-align: center; margin-bottom: 24px; line-height: 1.5; }
+    .calc-note { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: rgba(245,242,236,0.70); text-align: center; margin-top: 16px; margin-bottom: 24px; line-height: 1.5; }
 
     /* ── CARD HOVER GLOW ── */
     .service-card,
@@ -711,12 +711,13 @@
       .checklist-card li { font-size: 10px; }
       .checklist-card ul { gap: 8px; }
       .how-grid { grid-template-columns: 1fr; }
+      #how .container { padding: 0 10px; }
       .how-card {
-        display: flex; flex-direction: row; align-items: center; gap: 12px;
-        padding: 10px 16px; text-align: left; min-height: 58px;
+        display: flex; flex-direction: row; align-items: center; gap: 10px;
+        padding: 10px; text-align: center; min-height: 58px; justify-content: center;
       }
       .how-num { width: 30px; height: 30px; font-size: 14px; flex-shrink: 0; margin: 0; }
-      .how-card h3 { font-size: 14px; margin: 0; }
+      .how-card h3 { font-size: 14px; margin: 0; min-width: 105px; }
       .how-card p { font-size: 10px; margin: 0; }
       .calc-inner { grid-template-columns: 1fr; }
       #add-services { display: none; }
@@ -849,7 +850,7 @@
   <a href="#calculator" onclick="toggleMobileNav()">Pricing/Quote</a>
   <a href="#testimonials" onclick="toggleMobileNav()">Reviews</a>
   <a href="#footer" onclick="toggleMobileNav()">Contact</a>
-  <button class="btn-gold" onclick="toggleMobileNav();openModal()">Get a Quote</button>
+  <button class="btn-gold" onclick="toggleMobileNav();document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </div>
 
 <!-- TOP BAR (mobile only) -->
@@ -1291,7 +1292,6 @@
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#checklist">Checklist</a></li>
           <li><a href="#testimonials">Reviews</a></li>
