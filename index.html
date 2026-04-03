@@ -703,7 +703,7 @@
       .nav-cta-wrap { display: none; }
       .container { padding: 0 24px; }
       .section { padding: 70px 0; }
-      #hero { padding: 20px 0; min-height: 100dvh; display: flex; align-items: center; }
+      #hero { padding-top: 110px; padding-bottom: 40px; min-height: 100dvh; display: flex; align-items: flex-start; }
       #hero .label { display: none; }
       .topbar-mobile {
         display: block;
@@ -711,7 +711,7 @@
         font-family: var(--sans); font-size: 10px; font-weight: 400;
         letter-spacing: 0.12em; color: #C6A75E;
         background: var(--bg);
-        margin-top: 80px;
+        margin-bottom: 20px;
       }
       .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       .hero-image { display: none; }
@@ -874,13 +874,11 @@
   <button class="btn-gold" onclick="toggleMobileNav();document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </div>
 
-<!-- TOP BAR (mobile only) -->
-<div class="topbar-mobile">PREMIUM CLEANING IN TORONTO</div>
-
 <!-- HERO -->
 <section id="hero">
   <div class="container">
     <div class="hero-inner">
+      <div class="topbar-mobile">PREMIUM CLEANING IN TORONTO</div>
       <div class="hero-left fade-in">
         <span class="label">Premium Cleaning in Toronto</span>
         <h1 class="hero-title">Luxury Home<br>Cleaning</h1>
