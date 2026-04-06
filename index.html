@@ -1434,7 +1434,7 @@
     </div>
     <div class="modal-field">
       <label>Name</label>
-      <input type="text" placeholder="Enter your name" />
+      <input type="text" id="bookName" placeholder="Enter your name" />
     </div>
     <div class="modal-field">
       <label>Phone</label>
@@ -1465,6 +1465,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('_D1rm3w8tfiqqvhXB');</script>
 <script>
   // ── CALCULATOR STATE ──
   const state = {
@@ -1552,10 +1554,27 @@
 
     if (!canadianPhone || !validEmail || !validAddress) return;
 
+    const name = document.getElementById('bookName').value.trim();
+    const dateEl = document.getElementById('bookDate');
+    const date = dateEl ? dateEl.value : '—';
+    const addonsText = state.addons.size ? [...state.addons.keys()].join(', ') : '—';
+
+    emailjs.send('service_286c265', 'template_4p9nspt', {
+      name: name || '—',
+      phone,
+      email,
+      address,
+      date,
+      size: state.size,
+      type: state.type,
+      addons: addonsText,
+      total: '$' + calcTotal()
+    });
+
     closeModal();
     document.getElementById('confSize').textContent = state.size;
     document.getElementById('confType').textContent = state.type;
-    document.getElementById('confAddons').textContent = state.addons.size ? [...state.addons.keys()].join(', ') : '—';
+    document.getElementById('confAddons').textContent = addonsText;
     document.getElementById('confTotal').textContent = '$' + calcTotal();
     document.getElementById('confirmOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
