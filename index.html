@@ -856,7 +856,7 @@
 <body>
 
 <!-- SCROLL TO TOP -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <polyline points="2,11 8,5 14,11" stroke="#f0ece4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
@@ -877,14 +877,14 @@
   <div class="nav-cta-wrap">
     <button class="btn-gold nav-cta" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
   </div>
-  <div class="hamburger" onclick="toggleMobileNav()">
+  <button class="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </header>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+  <button class="mobile-nav-close" aria-label="Close menu" onclick="toggleMobileNav()">✕</button>
   <div style="width:180px; height:80px; margin-bottom:20px;"><img src="images/Logo.svg" alt="RoyalTouch" style="width:100%;height:100%;object-fit:contain;"></div>
   <a href="#services" onclick="toggleMobileNav()">Services</a>
   <a href="#checklist" onclick="toggleMobileNav()">Checklist</a>
@@ -1206,33 +1206,33 @@
     </div>
     <div class="test-grid fade-in">
       <div class="test-card stagger-item">
-        <div class="test-img"><img src="images/review_1.webp" alt="review" id="revImg1" loading="lazy"></div>
+        <div class="test-img"><img src="images/review_1.webp" alt="Customer review photo" id="revImg1" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
           <p class="test-quote">The team did an amazing job. My kitchen and bathroom look spotless and refreshed.</p>
           <div class="test-author">Sarah M.</div>
           <div class="test-source">Google review</div>
-          <button class="test-arrow" onclick="toggleReview(1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="test-arrow" aria-label="Toggle review photo" onclick="toggleReview(1)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
       <div class="test-card stagger-item">
-        <div class="test-img"><img src="images/review_2.webp" alt="review" id="revImg2" loading="lazy"></div>
+        <div class="test-img"><img src="images/review_2.webp" alt="Customer review photo" id="revImg2" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
           <p class="test-quote">The kitchen and living room look amazing after the cleaning. Everything feels fresh, spotless and organized.</p>
           <div class="test-author">Jessica N.</div>
           <div class="test-source">Google review</div>
-          <button class="test-arrow" onclick="toggleReview(2)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="test-arrow" aria-label="Toggle review photo" onclick="toggleReview(2)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
       <div class="test-card stagger-item">
-        <div class="test-img"><img src="images/review_3.webp" alt="review" id="revImg3" loading="lazy"></div>
+        <div class="test-img"><img src="images/review_3.webp" alt="Customer review photo" id="revImg3" loading="lazy"></div>
         <div class="test-body">
           <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
           <p class="test-quote">I was impressed by the attention to detail. The living room is spotless and even the oven looks brand new.</p>
           <div class="test-author">Daniel Z.</div>
           <div class="test-source">Google review</div>
-          <button class="test-arrow" onclick="toggleReview(3)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="test-arrow" aria-label="Toggle review photo" onclick="toggleReview(3)"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#C6A75E" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
     </div>
@@ -1414,10 +1414,10 @@
   <div class="modal">
     <div class="modal-header">
       <h3>Book Your Cleaning</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" aria-label="Close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-field">
-      <label>Date</label>
+      <label for="bookDate">Date</label>
       <input type="text" id="bookDate" placeholder="Select date" readonly />
     </div>
     <div class="modal-field">
@@ -1435,21 +1435,21 @@
       </div>
     </div>
     <div class="modal-field">
-      <label>Name</label>
+      <label for="bookName">Name</label>
       <input type="text" id="bookName" placeholder="Enter your name" />
     </div>
     <div class="modal-field">
-      <label>Phone</label>
+      <label for="bookPhone">Phone</label>
       <input type="tel" id="bookPhone" placeholder="+1 (416) 000-0000" onfocus="if(!this.value)this.value='+1 '" onblur="if(this.value==='+1 ')this.value=''" />
       <div class="field-error" id="errPhone">Please enter a valid Canadian phone number</div>
     </div>
     <div class="modal-field">
-      <label>E-mail</label>
+      <label for="bookEmail">E-mail</label>
       <input type="email" id="bookEmail" placeholder="Enter your e-mail" />
       <div class="field-error" id="errEmail">Please enter a valid e-mail address</div>
     </div>
     <div class="modal-field">
-      <label>Address</label>
+      <label for="bookAddress">Address</label>
       <input type="text" id="bookAddress" placeholder="Enter your address" />
       <div class="field-error" id="errAddress">Please enter a valid address (e.g. 17 Bathurst St)</div>
     </div>
