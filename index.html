@@ -192,8 +192,19 @@
       font-size: 13px; font-weight: 400; letter-spacing: 0.3px;
       color: rgba(240,236,228,0.65); text-decoration: none;
       transition: color .2s;
+      position: relative; padding-bottom: 4px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .3s ease;
     }
     nav a:hover { color: var(--text); }
+    nav a:hover::after { width: 100%; }
+    nav a.active { color: var(--text); }
+    nav a.active::after { width: 100%; }
     .nav-cta { margin-left: 10px; font-size: 12px; padding: 11px 24px; }
 
     .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 40px; height: 28px; cursor: pointer; padding: 0; background: none; border: none; }
@@ -1669,6 +1680,23 @@
 
   document.querySelectorAll('.checklist-card').forEach(el => liObserver.observe(el));
 
+
+
+  // ── ACTIVE NAV ──
+  const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+  const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  let navTimer;
+  window.addEventListener('scroll', () => {
+    clearTimeout(navTimer);
+    navTimer = setTimeout(() => {
+      const scrollY = window.scrollY + 120;
+      let current = sections[0];
+      sections.forEach(s => { if (s.offsetTop <= scrollY) current = s; });
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`header nav a[href="#${current.id}"]`);
+      if (active) active.classList.add('active');
+    }, 150);
+  }, { passive: true });
 
   // ── MOBILE NAV ──
   function toggleMobileNav() {
