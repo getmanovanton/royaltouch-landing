@@ -1538,7 +1538,7 @@
     </div>
     <div class="modal-field">
       <label for="bookAddress">Address</label>
-      <input type="text" id="bookAddress" placeholder="Enter your address" />
+      <input type="text" id="bookAddress" placeholder="Enter your address" oninput="this.value=this.value.replace(/[^a-zA-Z0-9\s,.\-#]/g,'')" />
       <div class="field-error" id="errAddress">Please enter a valid address (e.g. 17 Bathurst St)</div>
     </div>
     <div class="modal-summary">
