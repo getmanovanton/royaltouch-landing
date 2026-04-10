@@ -1608,7 +1608,7 @@
     const date = dateEl ? dateEl.value : '—';
     const addonsText = state.addons.size ? [...state.addons.keys()].join(', ') : '—';
 
-    emailjs.send('service_9vm64of', 'template_4p9nspt', {
+    const bookingData = {
       name: name || '—',
       phone,
       email,
@@ -1618,7 +1618,9 @@
       type: state.type,
       addons: addonsText,
       total: '$' + calcTotal()
-    });
+    };
+    emailjs.send('service_9vm64of', 'template_4p9nspt', bookingData);
+    emailjs.send('service_9vm64of', 'template_e1ifai9', bookingData);
 
     closeModal();
     document.getElementById('confSize').textContent = state.size;
